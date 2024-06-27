@@ -13,7 +13,7 @@ class TodoApp(QMainWindow):
         self.ui.setupUi(self)
         self.ui.bt_add_task.clicked.connect(self.add_task)
 
-        #Create a QScrollArea
+        # Create a QScrollArea
         self.scroll_area = QScrollArea()
         self.scroll_area.setWidgetResizable(True)
         self.scroll_area.setStyleSheet("background: transparent; border: none;")
@@ -37,7 +37,7 @@ class TodoApp(QMainWindow):
         # Add a stretch widget at the end so that tasks are at the top
         self.scroll_layout.addStretch()
 
-        #btn for deleting tasks
+        # btn for deleting tasks
         self.ui.bt_delete1.clicked.connect(lambda: self.remove_task(self.ui.task_1))
         self.ui.bt_delete2.clicked.connect(lambda: self.remove_task(self.ui.task_2))
         self.ui.bt_delete_3.clicked.connect(lambda: self.remove_task(self.ui.task_3))
@@ -45,21 +45,24 @@ class TodoApp(QMainWindow):
     def add_task(self):
         task_widget = QFrame()
         task_widget.setStyleSheet(self.ui.task_1.styleSheet())
+        task_widget.setFixedHeight(self.ui.task_1.height())  # Set the same height as existing tasks
 
         task_layout = QHBoxLayout(task_widget)
+        task_layout.setContentsMargins(9, 9, 9, 9)  # Set the same margins as in existing tasks
 
         checkbox = QCheckBox()
-        checkbox.setMaximumSize(24, 24)
+        checkbox.setFixedSize(self.ui.checkBox_1.size())
         checkbox.setStyleSheet(self.ui.checkBox_1.styleSheet())
 
         task_edit = QLineEdit()
-        task_edit.setMaximumSize(16777215, 34)
+        task_edit.setFixedHeight(self.ui.lineEdit_1.height())
         task_edit.setStyleSheet(self.ui.lineEdit_1.styleSheet())
 
         delete_button = QPushButton()
-        delete_button.setMaximumSize(24, 27)
+        delete_button.setFixedSize(self.ui.bt_delete1.size())
         delete_button.setStyleSheet(self.ui.bt_delete1.styleSheet())
         delete_button.setIcon(QIcon(":/icons/icons/delete_white_24dp.svg"))
+        delete_button.setIconSize(self.ui.bt_delete1.iconSize())
 
         task_layout.addWidget(checkbox)
         task_layout.addWidget(task_edit)
