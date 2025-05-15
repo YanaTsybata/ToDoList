@@ -2,7 +2,6 @@
 
 A simple and easy ToDo List app created with Python and PySide6. Designed to help You manage your daily tasks efficiently with a clean, user-friendly interface.
 
-
 ## Features
 
 - Add and remove tasks with ease
