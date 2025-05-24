@@ -10,7 +10,6 @@ A simple and easy ToDo List app created with Python and PySide6. Designed to hel
 - Persistent default tasks
 - Modern and intuitive design
 
-
 This minimalist ToDo List app automates your daily planning, allowing you to focus on what really matters - achieving your goals.
 
 
